@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/sites/create_site.css' %}">
+{% endblock %}
+{% block content %}
+<div class="container">
+    <h2>Create New Site</h2>
+    <form method="post" class="site-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-create">Create Site</button>
+    </form>
+</div>
+{% endblock %}

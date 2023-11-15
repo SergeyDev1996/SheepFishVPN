@@ -1,48 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
-    <!-- Add any required CSS here -->
-    <style>
-        /* Add some basic styling */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .login-container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 300px;
-            text-align: center;
-        }
-
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 4px;
-            border: 1px solid #ddd;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #5cb85c;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-    </style>
-</head>
+{% block css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/user/login.css' %}">
+{% endblock %}
+{% block content %}
 <body>
     <div class="login-container">
         <h2>Login</h2>
@@ -53,4 +13,4 @@
         </form>
     </div>
 </body>
-</html>
+{% endblock %}

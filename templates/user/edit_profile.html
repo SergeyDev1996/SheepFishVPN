@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html><!DOCTYPE html>
-<html>
-<head>
-    <title>Edit Profile</title>
-    <!-- Add any required CSS here -->
-</head>
-<body>
-    <h1>Edit Profile</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ password_form.as_p }}
-        <button type="submit">Update</button>
-    </form>
-</body>
-</html>
+{% extends "base.html" %}
+{% block css %}
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/user/edit-profile.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="edit-profile-container">
+        <h1>Edit Profile</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ user_form.as_p }}
+            {{ password_form.as_p }}
+            <button type="submit">Update</button>
+        </form>
+    </div>
+{% endblock %}

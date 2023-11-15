@@ -44,5 +44,4 @@ def edit_profile(request):
     else:
         user_form = UserEditForm(instance=request.user)
         password_form = CustomPasswordChangeForm(request.user)
-
     return render(request, 'user/edit_profile.html', {'user_form': user_form, 'password_form': password_form})
