@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm, UserChangeForm
 from django.contrib.auth.models import User
 
 from django import forms
@@ -35,10 +35,44 @@ class SignUpForm(UserCreationForm):
         return username
 
 
-class UserEditForm(forms.ModelForm):
+class EditProfileForm(UserChangeForm):
+    password1 = forms.CharField(widget=forms.PasswordInput(), required=False, label="New password")
+    password2 = forms.CharField(widget=forms.PasswordInput(), required=False, label="New password confirmation")
+
     class Meta:
         model = User
         fields = ('username',)
+        help_texts = {
+            'username': None,
+            'password1': None,
+            'password2': None  # This will remove the help text for the username field
+        }
+
+    def clean_username(self):
+        username = self.cleaned_data['username']
+        if User.objects.filter(username=username).exclude(pk=self.instance.pk).exists():
+            raise ValidationError("A user with that username already exists.")
+        return username
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+        if password1 or password2:
+            if password1 != password2:
+                raise ValidationError("The two password fields didn't match.")
+        return password2
+
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        password1 = self.cleaned_data.get('password1')
+
+        # Only set the password if a new one has been entered
+        if password1:
+            user.set_password(password1)
+
+        if commit:
+            user.save()
+        return user
 
 
 class CustomPasswordChangeForm(PasswordChangeForm):

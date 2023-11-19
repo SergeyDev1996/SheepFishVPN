@@ -1,9 +1,10 @@
+from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.urls import reverse_lazy
 
-from .forms import SignUpForm, UserEditForm, CustomPasswordChangeForm
+from .forms import SignUpForm, EditProfileForm
 from django.contrib.auth.decorators import login_required
 
 
@@ -35,13 +36,12 @@ def signup_view(request):
 @login_required
 def edit_profile(request):
     if request.method == 'POST':
-        user_form = UserEditForm(request.POST, instance=request.user)
-        password_form = CustomPasswordChangeForm(request.user, request.POST)
-        if user_form.is_valid() and password_form.is_valid():
-            user_form.save()
-            password_form.save()
-            return HttpResponseRedirect(reverse_lazy("user:profile"))
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('user:profile')  # Redirect to the profile page
     else:
-        user_form = UserEditForm(instance=request.user)
-        password_form = CustomPasswordChangeForm(request.user)
-    return render(request, 'user/edit_profile.html', {'user_form': user_form, 'password_form': password_form})
+        form = EditProfileForm(instance=request.user)
+
+    return render(request, 'user/edit_profile.html', {'form': form})
