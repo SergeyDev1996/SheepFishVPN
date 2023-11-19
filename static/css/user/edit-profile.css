@@ -1,52 +1,58 @@
-/* Edit Profile Page Styles */
-.edit-profile-container {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    text-align: center;
-    margin-top: 50px;
+/* Container for the form to center it on the page */
+.container {
+  max-width: 400px;
+  margin: 50px auto; /* Centers the form with a margin from the top */
+  padding: 20px;
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.edit-profile-container h1 {
-    color: #333;
-    margin-bottom: 20px;
+/* Style for form elements */
+.form-group {
+  margin-bottom: 15px; /* Space between form groups */
 }
 
-.edit-profile-container form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.form-group label {
+  display: block; /* Make the label take the full width */
+  margin-bottom: 5px; /* Space between the label and the input */
 }
 
-.edit-profile-container input[type="text"],
-.edit-profile-container input[type="password"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+.form-group input[type="text"],
+.form-group input[type="password"] {
+  width: 100%; /* Make the input take the full width of its parent */
+  padding: 10px;
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Rounded corners for the input */
 }
 
-.edit-profile-container button[type="submit"] {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    cursor: pointer;
+/* Style for the submit button */
+button[type="submit"] {
+  width: 100%; /* Make the button take the full width of its parent */
+  padding: 10px;
+  background-color: #4CAF50; /* Green background */
+  color: white; /* White text */
+  border: none; /* Remove default border */
+  border-radius: 4px; /* Rounded corners for the button */
+  cursor: pointer; /* Cursor to indicate it's a clickable button */
+  font-size: 1em; /* Increase font size for better readability */
+  margin-top: 20px; /* Space above the button */
 }
 
-.edit-profile-container button[type="submit"]:hover {
-    background-color: #0056b3;
+button[type="submit"]:hover {
+  background-color: #45a049; /* Slightly darker green on hover for feedback */
 }
 
-.edit-profile-container .error {
-    color: red;
-    font-size: 0.8em;
-    width: 100%;
-    text-align: left;
+/* Style for error messages */
+.error, .errorlist {
+  color: red; /* Red text for errors */
+  font-size: 0.9em; /* Slightly smaller text for errors */
+  margin-top: 5px; /* Space between the input and the error message */
+}
+
+/* If you have non-field errors */
+.form-non-field-errors {
+  color: red; /* Red text for non-field errors */
+  margin-bottom: 15px; /* Space below the non-field errors */
 }

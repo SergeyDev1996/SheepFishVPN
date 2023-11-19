@@ -7,9 +7,9 @@
 <div class="container">
     <h2>Your Sites</h2>
     <ul class="site-list">
-        {% for site_name in sites %}
+        {% for site in sites %}
         <li>
-            <strong>{{ site_name }}</strong> - <a href="{% url 'sites:proxy_view' site_name=site_name %}" target="_blank">{{ site_name }}</a>
+            <strong>{{ site.name }}</strong> - <a href="{% url 'sites:proxy_view' site_name=site.name %}" target="_blank">{{ site.url }}</a>
             <!-- You can also add a button or link to use the internal proxy here -->
 {#            <!-- Example: <a href="{% url 'proxy_view' site_name=site.name %}">Visit via Proxy</a> -->#}
         </li>
