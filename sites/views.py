@@ -44,7 +44,7 @@ def my_proxy_view(request, site_name, link=''):
         site_url = user_site.url
     try:
         response = requests.get(site_url)
-        response.raise_for_status()  # Raises HTTPError for bad requests (4XX or 5XX)
+        response.raise_for_status()
     except requests.RequestException as e:
         return HttpResponse(f"An error occurred when trying to reach the site: {e}", status=502)
     content_type = response.headers.get('Content-Type', '')
