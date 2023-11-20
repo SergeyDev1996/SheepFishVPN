@@ -1,7 +1,3 @@
-# Project Name
-
-Brief description of what the project does.
-
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
