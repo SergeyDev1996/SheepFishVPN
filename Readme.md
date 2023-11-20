@@ -45,12 +45,19 @@ A step-by-step series of examples that tell you how to get a development environ
 
     The `docker-compose exec` command allows you to run commands inside the service's container. Here, `web` is assumed to be the service name defined in your `docker-compose.yml` that runs the Django project. Replace `web` with the actual service name if it's different.
 
-5. (Optional) You can create a superuser to access the Django admin panel:
+5. Your project should now be running on [http://localhost:8050](http://localhost:8050) (or another port if you've configured it differently in your Docker settings).
+## Creating a New Site
 
-    ```sh
-    docker-compose exec web python manage.py createsuperuser
-    ```
+To add a new site to the system, follow these steps:
 
-    Follow the prompts to create a superuser account.
+1. Go to the Create New Site page by clicking on the 'Create Site' button located on the 'Your Sites' page.
 
-6. Your project should now be running on [http://localhost:8050](http://localhost:8050) (or another port if you've configured it differently in your Docker settings).
+2. In the form provided, enter a unique name for the site in the 'Name' field. This should be an identifier that is easy for you to remember.
+
+3. Enter the full URL of the site you wish to add in the 'URL' field, including the `http://` or `https://` prefix.
+
+4. Click the 'Submit' button to create the site.
+
+5. If you see any error messages, such as "A site with this name and URL already exists," correct the information accordingly and re-submit the form.
+
+6. Once the site is successfully created, you will be redirected to a confirmation page or the list of your sites, where you can see the new entry.

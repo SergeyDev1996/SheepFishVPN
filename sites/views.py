@@ -22,7 +22,7 @@ def create_site(request):
             return HttpResponseRedirect(reverse_lazy("sites:my_sites"))
     else:
         form = SiteForm()
-    return render(request, 'sites/create_site.html', {'form': form})
+    return render(request, "sites/create_site.html", {'form': form})
 
 
 @login_required
