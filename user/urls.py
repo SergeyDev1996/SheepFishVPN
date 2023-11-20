@@ -4,7 +4,7 @@ from django.urls import path
 from user.views import signup_view, user_profile, edit_profile
 
 urlpatterns = [
-    path("signup/", signup_view),
+    path("signup/", signup_view, name="signup"),
     path("profile/", user_profile, name="profile"),
     path("login/", LoginView.as_view(
         template_name="user/login_template.html",

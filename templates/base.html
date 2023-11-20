@@ -77,6 +77,7 @@
         <a href="{% url 'sites:my_sites' %}" class="my-sites-button">My Sites</a>
         <a href="{% url 'user:profile' %}" class="my-profile-button">My Profile</a>
       {% else %}
+        <a href="{% url 'user:signup' %}">SignUp</a>
         <a href="{% url 'user:login' %}" class="login-button">Login</a>
       {% endif %}
     </nav>
